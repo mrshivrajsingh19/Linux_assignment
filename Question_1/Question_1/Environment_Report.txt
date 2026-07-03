@@ -1,0 +1,30 @@
+1. Username and groups associated with your account
+* Command Executed: id
+* Terminal Output: uid=1000(shivraj) gid=1000(shivraj) groups=1000(shivraj),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),100(users),114(lpadmin)
+* Observation: I executed the id command to identify my current user context on the server. The output confirms my active username is 'arka' and lists the specific permission groups my account belongs to, verifying my system-level access rights (including sudo) before beginning project work.
+
+2. Current shell being used
+* Command Executed: echo $SHELL
+* Terminal Output: /bin/bash
+* Observation: By printing the $SHELL environment variable, I verified that the default command-line interpreter assigned to my account is Bash, establishing exactly which syntax and scripting features are supported in my session.
+
+3. Current working directory
+* Command Executed: pwd
+* Terminal Output: /home/arka/Linux_Assignment/Question_1
+* Observation: I used the pwd command to confirm my exact absolute path in the Linux file system. Verifying my current location ensures any files I create or commands I run are executed in the correct project folder.
+
+4. List of files and directories in your workspace
+* Command Executed: ls -la
+* Terminal Output: 
+total 12
+drwxrwxr-x 3 shivraj shivraj 4096 Jul 3 22:13 .
+drwxrwxr-x 7 shivraj shivraj 4096 Jul 3 21:44 ..
+drwxrwxr-x 7 shivraj shivraj 4096 Jul 3 22:13 Linux_Assignment
+* Observation: Running ls with the -la flags provided a detailed, long-format list of all contents in my directory. This allowed me to review the existing file permissions, ownership, and sizes within my workspace.
+
+5. Network connectivity verification result
+* Command Executed: ping -c 4 google.com
+* Terminal Output: 
+--- google.com ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3008ms
+* Observation: I executed the ping command with a count flag of 4 to test outbound network connectivity. The response shows that all packets were successfully transmitted and received, confirming that the network interface is fully operational.
