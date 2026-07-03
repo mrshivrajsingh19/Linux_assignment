@@ -1,0 +1,17 @@
+1. Available storage devices
+* Command Executed: lsblk
+* Observation: Displayed a hierarchical tree of all block devices attached to the system, detailing the physical drives, their partitions, and exact mount points.
+
+2. Mounted file systems & 3. Disk usage statistics
+* Command Executed: df -h
+* Observation: Provided a human-readable summary of all mounted file systems. I observed the total size, used space, available space, and usage percentage for the root filesystem and other partitions.
+
+4. Inode utilization
+* Command Executed: df -i
+* Observation: Checking the inode consumption revealed the number of used and available file index nodes. This ensures the system can continue creating new files without running out of structural pointers, even if physical block space is available.
+
+5. Storage health observations
+* Observation: Based on the df outputs, the root filesystem has adequate block space remaining, and there are no critical capacity alerts. Inode utilization is well within safe thresholds, indicating the overall storage environment is currently healthy and fully capable of handling new data and files.
+
+6. Recommendations for improving storage utilization
+* Observation: To maintain optimal storage health long-term, the organization should implement automated log rotation policies to compress or delete old system and application logs. Additionally, administrators should routinely clear package manager caches to free up space and prevent the storage partitions from filling up unnecessarily over time.
