@@ -1,0 +1,25 @@
+1. Inode numbers of all files
+* Command Executed: ls -li orig.txt hard.txt sym.txt
+* Terminal Output: Shows orig.txt and hard.txt sharing the same inode, while sym.txt has a different inode.
+* Observation: By running ls -li, I observed the inode numbers. The original file and the hard link share the exact same inode number, demonstrating they point to the identical
+ data block on the disk. The symbolic link has a unique, separate inode number.
+
+2. Comparison between hard link and symbolic link
+* Observation: A hard link is a direct pointer to the underlying data (inode) on the storage drive, making it indistinguishable from the original file. A symbolic link (soft li
+nk) is merely a shortcut or reference that points to the original file's path, not the data itself.
+
+3. Effect of deleting the original file
+* Command Executed: rm orig.txt, followed by cat hard.txt and cat sym.txt
+* Terminal Output: cat hard.txt successfully outputs the data. cat sym.txt throws an error (No such file or directory).
+* Observation: Deleting the original file breaks the symbolic link because the file path it points to no longer exists. However, the hard link remains fully functional and 
+displays the data because the underlying inode and data block remain intact as long as at least one hard link points to it.
+
+4. Metadata collected using Linux utilities
+* Command Executed: stat hard.txt sym.txt
+* Observation: Using the stat utility provided detailed metadata. The output clearly identified the file type for 'sym.txt' as a symbolic link pointing to 'orig.txt', while 
+'hard.txt' was identified as a regular file.
+
+
+5. Conclusions drawn from the experiment
+* Observation: Hard links provide data resilience since the underlying data persists even if the original file name is removed, but they are restricted to the same filesystem.
+ Symbolic links are more flexible and can span across different filesystems, but they are fragile because they break immediately if the target file is moved or deleted.
