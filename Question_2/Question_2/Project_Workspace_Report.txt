@@ -1,0 +1,29 @@
+1. Directory structure created
+* Command Executed: mkdir -p project_workspace/{docs,code}
+* Terminal Output: (Command runs silently upon success)
+* Observation: I successfully used the -p flag with mkdir to instantly generate a parent directory named 'project_workspace' containing two nested subdirectories, 'docs' and 'code', establishing the required project layout.
+
+2. File permissions before and after modification
+* Command Executed: ls -ld project_workspace/ (Before) & chmod 750 project_workspace/ (After)
+* Terminal Output: 
+Before:
+drwxrwxr-x 4 shivraj shivraj 4096 Jul 3 22:53 project_workspace/
+
+After:
+drwxr-x--- 4 shivraj shivraj 4096 Jul 3 22:53 project_workspace/
+
+* Observation: Initially, the directory had wider default permissions (drwxrwxr-x). After executing chmod 750, the permissions were successfully restricted to drwxr-x---, securing the folder.
+
+3. Ownership details
+* Command Executed: ls -ld project_workspace/
+* Terminal Output: drwxr-x--- 4 shivraj shivraj 4096 Jul 3 22:53 project_workspace/
+* Observation: The directory listing confirms that my specific user account, 'arka', is designated as both the user owner and the group owner of the workspace directory.
+
+4. Umask value used
+* Command Executed: umask
+* Terminal Output: 0002
+* Observation: Executing the umask command revealed a system default value of 0002. This dictates the default permissions automatically assigned to any newly created files and directories during my session.
+
+5. Explanation of how permissions protect project data
+* Observation: By setting the directory permissions to 750, strict access control is enforced. As the owner (arka), I retain full control to read, write, and execute files. Members of my group can read and traverse the directory but cannot modify or delete the core structure. Finally, all unauthorized third parties (others) are assigned zero permissions, completely blocking them from viewing or accessing sensitive project data.
+
